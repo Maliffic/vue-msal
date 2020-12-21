@@ -13,11 +13,22 @@ export default class msalPlugin {
             Vue.mixin(mixin);
         }
         const exposed: iMSAL = {
-            data: msal.data,
-            async signIn() { await msal.signIn(); },
-            async signOut() { await msal.signOut(); },
-            async acquireToken() { await msal.acquireToken(); },
-            isAuthenticated() { return msal.isAuthenticated(); }
+          data: msal.data,
+          async signIn() {
+            await msal.signIn();
+          },
+          async signOut() {
+            await msal.signOut();
+          },
+          async acquireToken() {
+            await msal.acquireToken();
+          },
+          async getTokenRedirect() {
+            await msal.getTokenRedirect();
+          },
+          isAuthenticated() {
+            return msal.isAuthenticated();
+          },
         };
         return exposed;
     }
